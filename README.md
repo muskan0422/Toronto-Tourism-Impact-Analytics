@@ -1,4 +1,6 @@
 # Toronto Tourism Impact Analytics: FIFA 2026 Predictive Impact Framework
+![full_dashboard](images/full_dashboard.png)
+*Figure 1: Predictive Dashboard showing historical trends and FIFA 2026 scenarios.*
 
 A predictive analytics framework forecasting tourism's impact on Toronto's infrastructure for the FIFA World Cup 2026.
 
@@ -7,9 +9,13 @@ This project analyzes how tourism in the City of Toronto impacts four key urban 
 
 ## Key Performance Indicators (KPIs) & Forecasts (2025-2026)
 * **Tourist Demand**: Predicted **16.15M** base visitors for the 2025-2026 period.
+![tourism_dashboard](images/tourism_dashboard.png)
 * **Accommodation Pressure**: Average hotel occupancy rate forecasted at **0.71 (71%)**.
+![hotel_occupancy_rates_dashboard](images/hotel_occupancy_rates_dashboard.png)
 * **Transportation Strain**: Projected **753M** total TTC boardings.
+![ttc_boarding_count_dashboard](images/ttc_boarding_count_dashboard.png)
 * **Resident Sentiment Index (RSI)**: Anticipated **821K** municipal service requests (311) related to city operations.
+![311_service_complaints](images/311_service_complaints.png)
 
 ## "What-If" Scenario: FIFA 2026 Uplift
 A central feature of the framework is a stress-test multiplier to simulate the impact of a global influx during match months:
