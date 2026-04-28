@@ -31,7 +31,7 @@ To support cross-KPI analysis, the project utilizes a **Star-Schema Semantic Mod
 ![ttc_boarding_count_dashboard](images/ttc_boarding_count_dashboard.png)
 
 *Figure 5: Annual boarding totals and forecasted ridership uplift highlighting transit system pressure during mega-events.*
-* **Resident Sentiment Index (RSI)**: Anticipated **821K** municipal service requests (311) related to city operations.
+* **Resident Sentiment Index (RSI)**: Anticipated increase in municipal service requests (311) related to city operations.
 ![311_service_complaints](images/311_service_complaints.png)
 
 *Figure 6: Forecasted uplift in 311 service requests simulating resident sentiment and urban strain during the World Cup.*
@@ -50,10 +50,11 @@ The analytical pipeline follows a structured, multi-layer approach to ensure dat
 * **Modeling Layer:** Analytics-ready tables are used to train machine learning models (Decision Tree, Random Forest) and generate the FIFA uplift scenarios.
 * **Visualization Layer:** Model outputs are imported into Power BI for interactive reporting and decision-support. 
 
-## Methodology & Predictive Modeling
-* **Decision Tree Regressor**: Employed for **Tourist Demand** to identify non-linear seasonal splits and holiday effects.
-* **Random Forest Regressor**: Used for **Transportation Strain** to handle complex relationships between ridership, events, and capacity.
-* **Linear Regression**: Applied to **Accommodation** and **Resident Sentiment** to model proportional trends between visitor volume and city feedback.
+## Modeling Deep-Dive & Evaluation
+To ensure forecast reliability, the following evaluation metrics were used across all models:
+* **Tourist Demand (Decision Tree)**: Captured non-linear seasonality; validated with **R²** and **RMSE** to ensure peak arrivals (1.19M) were statistically significant.
+* **Transportation Strain (Random Forest)**: Adjusted `n_estimators` and `max_depth` to reduce variance while managing computational cost.
+* **Veracity Check**: All data sources were cross-verified against official Statistics Canada and City of Toronto open data portals to ensure credibility.
 
 ## Technical Stack
 * **Modeling**: Python (Pandas, Scikit-learn).
