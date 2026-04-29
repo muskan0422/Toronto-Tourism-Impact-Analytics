@@ -14,7 +14,7 @@ To support cross-KPI analysis, the project utilizes a **Star-Schema Semantic Mod
 *Figure 2: Entity Relationship Diagram (ERD) showcasing fact-to-dimension relationships.*
 
 **Schema Highlights:**
-* **Centralized Dimensions:** Dim_Date and Dim_Year provide a consistent timeline for slicing data across different domains.  
+* **Centralized Dimensions:** `dim_date` and `dim_year` provide a consistent timeline for slicing data across different domains.  
 * **Fact Table Integration:** Links tourism arrivals, TTC ridership, hotel occupancy, and 311 service requests into a single analytical environment.  
 * **Integrity:** One-to-many relationships ensure clean filter propagation and prevent data ambiguity during scenario toggling.
 
