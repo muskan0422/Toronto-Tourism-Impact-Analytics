@@ -7,6 +7,13 @@ A predictive analytics framework forecasting tourism's impact on Toronto's infra
 ## Project Overview
 This project analyzes how tourism in the City of Toronto impacts four key urban indicators: **Tourist Demand**, **Accommodation Pressure**, **Transportation Strain**, and **Resident Sentiment**. Using a decade of historical data (2014–2024), the project provides a predictive framework to forecast city-wide needs for the **FIFA World Cup 2026**.
 
+## Analytical Framework
+To ensure the project addresses the complex needs of municipal stakeholders, the analysis was structured across four distinct analytical levels:  
+* **Descriptive:** Auditing historical trends, such as the 75% pre-pandemic hotel occupancy peak (2018) and origin-based visitor distributions.
+* **Diagnostic:** Identifying the drivers behind data fluctuations, including the impact of major festivals (TIFF, CNE) and the growth of 18,000+ Airbnb listings on local housing.
+* **Predictive:** Utilizing ML models to forecast a 16.15M visitor base and simulating a 15% FIFA uplift to project a peak of 1.19M arrivals.
+* **Prescriptive:** Generating data-driven strategies for transit resource allocation and community engagement to maintain long-term tourism sustainability.  
+
 ## Data Modeling & Schema
 To support cross-KPI analysis, the project utilizes a **Star-Schema Semantic Model**. This design ensures that all four KPI fact tables are linked to a unified temporal backbone.
 
@@ -50,11 +57,29 @@ The analytical pipeline follows a structured, multi-layer approach to ensure dat
 * **Modeling Layer:** Analytics-ready tables are used to train machine learning models (Decision Tree, Random Forest) and generate the FIFA uplift scenarios.
 * **Visualization Layer:** Model outputs are imported into Power BI for interactive reporting and decision-support. 
 
+## Data Integrity & Volatility Management
+Handling real-world, fragmented datasets required a rigorous approach to data veracity and stability:  
+* **Anomaly Management:** Identified and reviewed extreme outliers, specifically the 2020–2021 pandemic period, ensuring these "external shocks" did not skew the long-term 2026 forecast.
+* **Temporal Standardization:** Standardized disparate data frequencies (daily 311 requests vs. monthly tourism arrivals) into a unified year-month timeline to enable accurate cross-KPI correlations.
+* **Validation Protocols:** Used a time-based train-test split (training on 2015–2023 data and testing on 2024) to preserve the natural chronology of ridership and occupancy patterns.
+
 ## Modeling Deep-Dive & Evaluation
 To ensure forecast reliability, the following evaluation metrics were used across all models:
 * **Tourist Demand (Decision Tree)**: Captured non-linear seasonality; validated with **R²** and **RMSE** to ensure peak arrivals (1.19M) were statistically significant.
 * **Transportation Strain (Random Forest)**: Adjusted `n_estimators` and `max_depth` to reduce variance while managing computational cost.
 * **Veracity Check**: All data sources were cross-verified against official Statistics Canada and City of Toronto open data portals to ensure credibility.
+
+## Strategic Insights & Business Value
+The framework translates model outputs into actionable recommendations for city planners and industry partners:  
+* **Transit Optimization:** Forecasted a 5% ridership uplift for FIFA 2026 match months, identifying specific corridors where increased frequency is necessary to maintain service levels.
+* **Resident Engagement:** Predicted a 40% surge in municipal service complaints (RSI) during peak event months, highlighting the need for proactive communication regarding noise and traffic congestion.
+* **Market Planning:** Identified that hotel occupancy is expected to reach near-capacity levels (~80%) during mega-events, supporting the case for targeted short-term rental regulation and hotel expansion incentives.  
+
+## Future Enhancement Roadmap
+The platform is designed to be sustainable and adaptable for future urban planning needs:  
+* **Advanced Modeling:** Exploring the transition from traditional regressors to Prophet or LSTM neural networks to capture higher-order non-linear seasonality.
+* **Real-Time Integration:** Incorporating real-time transit telemetry and social media sentiment analysis to broaden the Resident Sentiment Index beyond municipal request data.
+* **Granular Data Expansion:** Integrating daily airport arrival data and inter-regional travel patterns to further refine transportation and accommodation precision.
 
 ## Technical Stack
 * **Modeling**: Python (Pandas, Scikit-learn).
